@@ -22,7 +22,7 @@ public class test {
     @AfterAll
     static void closing(){
      // закрываем модалку после проверки
-       $("#closeLargeModal").scrollIntoView(true).click(); // :(
+       $("#closeLargeModal").scrollIntoView(true).click(); // ура зароботоло
     }
 
     @Test
