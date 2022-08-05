@@ -5,6 +5,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
@@ -18,9 +20,9 @@ public class test {
         Configuration.browserSize = "400x1680"; // костыль на обход рекламы
     }
     @AfterAll
-     static void closing(){
-        // закрываем модалку после проверки
-        $("#closeLargeModal").click();
+    static void closing(){
+     // закрываем модалку после проверки
+       $("#closeLargeModal").click();
     }
 
     @Test
@@ -38,6 +40,7 @@ public class test {
         $("#subjectsInput").setValue("H").pressEnter();// ?
         $("[for = hobbies-checkbox-2]").click();
         // аплоад
+        $("#uploadPicture").uploadFile(new File("src/test/java/resources/cc.png"));
         $("#currentAddress").setValue("Поисковая, 1");
         $("#state").click();
         $(byText("Haryana")).click();
@@ -51,7 +54,7 @@ public class test {
         $(".modal-body").shouldHave(text("06 August,2022"));
         $(".modal-body").shouldHave(text("Hindi"));
         $(".modal-body").shouldHave(text("Reading"));
-        $(".modal-body").shouldHave(text("89990009988"));
+        $(".modal-body").shouldHave(text("8999000998"));
         $(".modal-body").shouldHave(text("Поисковая, 1"));
         $(".modal-body").shouldHave(text("Haryana Karnal"));
     }
