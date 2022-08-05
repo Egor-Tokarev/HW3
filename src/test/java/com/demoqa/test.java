@@ -22,7 +22,7 @@ public class test {
     @AfterAll
     static void closing(){
      // закрываем модалку после проверки
-       $("#closeLargeModal").click();
+       $("#closeLargeModal").scrollIntoView(true).click(); // :(
     }
 
     @Test
@@ -38,9 +38,10 @@ public class test {
         $("#dateOfBirthInput").click();
         $(".react-datepicker__day--006").click();
         $("#subjectsInput").setValue("H").pressEnter();// ?
-        $("[for = hobbies-checkbox-2]").click();
+        $("[for = hobbies-checkbox-2]").scrollTo().click();
         // аплоад
-        $("#uploadPicture").uploadFile(new File("src/test/java/resources/cc.png"));
+        $("#uploadPicture").uploadFile(new File("src/test/java/resources/ccc.png"));
+        // заполняем дальше
         $("#currentAddress").setValue("Поисковая, 1");
         $("#state").click();
         $(byText("Haryana")).click();
@@ -57,5 +58,6 @@ public class test {
         $(".modal-body").shouldHave(text("8999000998"));
         $(".modal-body").shouldHave(text("Поисковая, 1"));
         $(".modal-body").shouldHave(text("Haryana Karnal"));
+        $(".modal-body").shouldHave(text("ccc.png"));
     }
 }
