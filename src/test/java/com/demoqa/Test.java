@@ -3,7 +3,6 @@ package com.demoqa;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
@@ -12,7 +11,7 @@ import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class test {
+public class Test {
     @BeforeAll
     static void config(){
         Configuration.holdBrowserOpen = true;
@@ -25,7 +24,7 @@ public class test {
        $("#closeLargeModal").scrollIntoView(true).click(); // ура зароботоло
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void firstTest() {
         //открываем страничку:
         open("/automation-practice-form");
